@@ -9,9 +9,9 @@ const Header = (prop) => {
 function Content(prop) {
   const obj = prop.object;
   return obj.map((ob) => (
-    <p id={ob.name}>
+    <part id={ob.name}>
       {ob.name} {ob.exe}
-    </p>
+    </part>
   ));
 }
 
