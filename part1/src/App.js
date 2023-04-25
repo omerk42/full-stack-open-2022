@@ -16,13 +16,16 @@ const App = () => {
   const [vote, setVote] = useState(new Uint8Array(anecdotes.length));
 
   const handleVote = () => {
-    const copy = { ...vote };
+    const copy = [...vote];
     copy[selected] += 1;
     setVote(copy);
   };
+
+  var most = vote.indexOf(Math.max(...vote));
   return (
     <>
       <div>
+        <h1>Anecdotes of the day</h1>
         <p>{anecdotes[selected]}</p>
         <p>has {vote[selected]} points</p>
         <button
@@ -33,6 +36,9 @@ const App = () => {
           next anecdotes
         </button>
         <button onClick={handleVote}>vote</button>
+        <h1>Anecdotes with most votes</h1>
+        <p>{anecdotes[most]}</p>
+        <p>has {vote[most]} points</p>
       </div>
     </>
   );
